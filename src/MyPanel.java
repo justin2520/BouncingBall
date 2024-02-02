@@ -28,7 +28,7 @@ public class MyPanel extends JPanel{
         for(int i = 0; i < myBall.size(); i++) {
             myBall.get(i).draw(g);
             myBall.get(i).move();
-            myBall.get(i).hitWall();
+            myBall.get(i).hitWall(super.getWidth(), super.getHeight());
         }
 
 

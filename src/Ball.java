@@ -27,23 +27,30 @@ public class Ball {
         y += yVel;
     }
 
-    public void hitWall(){
-        if(x >= 500 - size) {
+    public void hitWall(double width, double height){
+        if(x >= width - size) {
+            angle();
             xVel = xVel * -1;
-            x -= x - (500 - size);
+            x -= x - (width - size);
         }
         if(x <= 0){
-            xVel = xVel * -1;
+            angle();
             x -= x;
         }
 
-        if(y >= 500 - size){
+        if(y >= height - size){
+            angle();
             yVel = yVel * -1;
-            y -= y - (500 - size);
+            y -= y - (height - size);
         }
         if(y <= 0){
-            yVel = yVel * -1;
+            angle();
             y -= y;
         }
+    }
+
+    public void angle(){
+        xVel = (int)(Math.random() * 10 + 1);
+        yVel = (int)(Math.random() * 10 + 1);
     }
 }
