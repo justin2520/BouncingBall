@@ -8,14 +8,12 @@ public class MyPanel extends JPanel{
     int yLoc = 300;
     int xVel = 2;
     int yVel = 2;
-    ArrayList<Ball> myBall = new ArrayList<Ball>();
-    static int ballCount = 0;
+    public static ArrayList<Ball> myBall = new ArrayList<Ball>();
 
     public MyPanel(){
         setBackground(Color.GREEN);
         for(int i = 0; i < 20; i++){
-            myBall.add(new Ball((int)(Math.random() * 500 + 1), (int)(Math.random() * 500 + 1), (int)(Math.random() * 100 + 1), (int)(Math.random() * 21 - 11), (int)(Math.random() * 10 + 1), new Color((int)(Math.random() * 255 + 1), (int)(Math.random() * 255 + 1), (int)(Math.random() * 255 + 1))));
-            ballCount++;
+            myBall.add(new Ball((int)(Math.random() * 500 + 1), (int)(Math.random() * 500 + 1), (int)(Math.random() * 100 + 1), (int)(Math.random() * 10 + 1), (int)(Math.random() * 10 + 1), new Color((int)(Math.random() * 255 + 1), (int)(Math.random() * 255 + 1), (int)(Math.random() * 255 + 1))));
         }
     }
 
@@ -29,6 +27,7 @@ public class MyPanel extends JPanel{
             myBall.get(i).draw(g);
             myBall.get(i).move();
             myBall.get(i).hitWall(super.getWidth(), super.getHeight());
+          myBall.get(i).bounce(i, super.getWidth(), super.getHeight());
         }
 
 
@@ -52,6 +51,4 @@ public class MyPanel extends JPanel{
         }
         repaint();
     }
-
-
 }
