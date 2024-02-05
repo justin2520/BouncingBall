@@ -62,32 +62,30 @@ public class Ball {
     }
 
     public void bounce(int current, double width, double height){
-        for(int i = 0; i < 20; i++){
-          if(current == i){
-            break;
-          }
-          
-          if((x + size) >= MyPanel.myBall.get(i).getX()){
-            xVel = xVel * -1;
-            MyPanel.myBall.get(i).setXVel(MyPanel.myBall.get(i).getXVel() * 1);
-            x -= x - (MyPanel.myBall.get(i).getX() - size);
-          }
-          else if(x <= (MyPanel.myBall.get(i).getX() + MyPanel.myBall.get(i).getSize())){
-            xVel = xVel * -1;
-            MyPanel.myBall.get(i).setXVel(MyPanel.myBall.get(i).getXVel() * 1);
-            MyPanel.myBall.get(i).setX(MyPanel.myBall.get(i).getX() - (MyPanel.myBall.get(i).getX() - (x - MyPanel.myBall.get(i).getSize())));
-          }
+        for(int i = 0; i < 20; i++) {
+            if (current != i) {
+                if(x <= (MyPanel.myBall.get(i).getX() + MyPanel.myBall.get(i).getSize())) {
+                    xVel = xVel * -1;
+                    MyPanel.myBall.get(i).setXVel(MyPanel.myBall.get(i).getXVel() * -1);
+//                    MyPanel.myBall.get(i).setX(MyPanel.myBall.get(i).getX() - (MyPanel.myBall.get(i).getX() - MyPanel.myBall.get(i).getSize()));
+                }
+            else if((x + size) >= MyPanel.myBall.get(i).getX()) {
+                    xVel = xVel * -1;
+                    MyPanel.myBall.get(i).setXVel(MyPanel.myBall.get(i).getXVel() * -1);
+//                    x -= x - size;
+                }
 
-          if((y + size) >= MyPanel.myBall.get(i).getY()){
-            yVel = yVel * -1;
-            MyPanel.myBall.get(i).setYVel(MyPanel.myBall.get(i).getYVel() * 1);
-            y -= y - (MyPanel.myBall.get(i).getY() - size);
-          }
-          else if(y <= (MyPanel.myBall.get(i).getY() + MyPanel.myBall.get(i).getSize())){
-            yVel = yVel * -1;
-            MyPanel.myBall.get(i).setYVel(            MyPanel.myBall.get(i).getYVel() * 1);
-            MyPanel.myBall.get(i).setY(MyPanel.myBall.get(i).getY() - (MyPanel.myBall.get(i).getY() - (y - MyPanel.myBall.get(i).getSize())));
-          }
+                 if (y <= (MyPanel.myBall.get(i).getY() + MyPanel.myBall.get(i).getSize())) {
+                    yVel = yVel * -1;
+                    MyPanel.myBall.get(i).setYVel(MyPanel.myBall.get(i).getYVel() * -1);
+//                    MyPanel.myBall.get(i).setY(MyPanel.myBall.get(i).getY() - (MyPanel.myBall.get(i).getY() - MyPanel.myBall.get(i).getSize()));
+                }
+                else if((y + size) >= MyPanel.myBall.get(i).getY()) {
+                    yVel = yVel * -1;
+                    MyPanel.myBall.get(i).setYVel(MyPanel.myBall.get(i).getYVel() * -1);
+//                    y -= y - size;
+                }
+            }
         }
     }
 
